@@ -1,6 +1,6 @@
 import { SudokuBoardTpe, SudokuCellContent } from "../types";
 
-function canPlaceNumber(
+export function canPlaceNumber(
   sudokuGrid: SudokuBoardTpe, 
   row: number,
   column: number,

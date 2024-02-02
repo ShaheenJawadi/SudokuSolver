@@ -1,7 +1,7 @@
 
 import {createSlice } from "@reduxjs/toolkit"; 
 import { SudokuBoardTpe, CursorPositionType } from "../types";
-import {  solvePuzzle } from "../services/solver";
+import {  canPlaceNumber, solvePuzzle } from "../services/solver";
  
 
 
@@ -32,8 +32,14 @@ export const appSudokuSlice = createSlice({
   reducers: {
     putDigit: (state, action) => {
       const { x, y } = state.cursorPosition;
-      if (checkCursor(x, y)) {
-        state.board[y][x] = action.payload;
+      const num =action.payload;
+      if (checkCursor(x, y) && state.board[x][y]!==num) {
+        if ( num==0 ||canPlaceNumber(state.board, y, x, num)) {
+          state.board[y][x] = num;
+        } else {
+          console.log("no");
+        }
+ 
       }
     },
     setCursor: (state, action) => {
