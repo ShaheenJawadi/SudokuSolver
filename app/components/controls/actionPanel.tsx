@@ -1,5 +1,5 @@
 
-import { solve, putDigit } from "@/app/store/sudoku";
+import { solve, putDigit, reset } from "@/app/store/sudoku";
 import { AppDispatch } from "@/app/store";
 import { useDispatch } from "react-redux";
 
@@ -21,7 +21,7 @@ const ActionPanel = ()=>{
                 <div className="emoji" >🧹</div>
                 <div className="title" >Erase</div>
             </button>
-            <button>
+            <button onClick={() => dispatch(reset())}>
                 <div className="emoji" >🔄</div>
                 <div className="title" >Reset</div>
             </button>
