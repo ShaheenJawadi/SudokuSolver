@@ -1,11 +1,13 @@
 
 import {createSlice } from "@reduxjs/toolkit"; 
 type InitialStateType = {
-  data: any;
+  cursorPosition:{
+    x:number , y:number
+  };
  
 };
 const initialState: InitialStateType = {
-  data: null,
+  cursorPosition: {x:-1 , y:-1},
  
 };
 
