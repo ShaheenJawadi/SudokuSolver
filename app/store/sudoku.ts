@@ -19,8 +19,13 @@ export const appSudokuSlice = createSlice({
 
     },
     setCursor :(state , action )=>{
-      state.cursorPosition = {x:action.payload.x ,y:action.payload.y}
-      console.log(state.cursorPosition)
+      const { x, y } = action.payload;
+      if (state.cursorPosition.x == x && state.cursorPosition.y == y){
+          state.cursorPosition = { x:-1, y:-1 };
+      }
+      else 
+        state.cursorPosition = { x, y };
+     
     }
   }
 });
