@@ -10,11 +10,12 @@ const NumSelector =()=>{
 
     useEffect(() => {
         const handleKeyDown = (event: any) => {
-            const pressedKey: number = event.keyCode;
-            console.log(pressedKey)
             if ((event.key >= '1' && event.key <= '9')) {
                 handelClick(event.key as number);
             }
+            else if (event.keyCode == 8) {
+                handelClick(0);
+            } 
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => {
