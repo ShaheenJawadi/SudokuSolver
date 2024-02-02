@@ -1,5 +1,5 @@
 :root {
-   
+   --board-border:2px solid #000;
 }
 
  
@@ -17,7 +17,7 @@ body {
 }
 
 body {
- background: #16181d;
+ background: #fff;
 }
 
 a {
@@ -36,23 +36,44 @@ a {
  
  .board{ 
     display: grid;
-      grid-template-columns: repeat(9, minmax(40px, 40px));
-      grid-template-rows: repeat(9, minmax(40px, 40px));
-      grid-gap: 0px;
-      justify-items: center;
-      margin: auto;
+      grid-template-columns: repeat(9, 50px);
+      grid-template-rows: repeat(9, 50px);
+      gap: 0px;
+      border: var(--board-border);;
+     
  }
 
  .board .cell {
+    width: 50px;
+      height: 50px;
     color: #000000;
-      background: #f5f5f5;
+      background: #ffffff;
       display: flex;
       justify-content: center;
-      border: 1px solid #6aa90b;
+      border: 1px solid #7b8173;
       align-items: center; 
-      width: 100%;
+     
       font-size: 10px;
       font-weight: 700; 
     
  }
+.cell:nth-child(3n) {
+  border-right: var(--board-border);;
+}
+
+.cell:nth-child(3n+1) {
+  border-left:var(--board-border);;
+}
+
  
+
+.cell:nth-child(n+19):nth-child(-n+27),
+.cell:nth-child(n+46):nth-child(-n+54)  {
+  border-bottom:var(--board-border);;
+}
+ 
+
+.cell:nth-child(n+28):nth-child(-n+36),
+.cell:nth-child(n+55):nth-child(-n+63) {
+  border-top: var(--board-border);
+}
