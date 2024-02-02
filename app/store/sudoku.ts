@@ -89,11 +89,9 @@ export const appSudokuSlice = createSlice({
 
        state.cursorPosition = newPos;
     },
-    solve :(state , action)=>{
+    solve :(state)=>{
 
  const solver = solvePuzzle(state.board);
-
-
         if (solver) {
         console.log("Solved");
         } else {

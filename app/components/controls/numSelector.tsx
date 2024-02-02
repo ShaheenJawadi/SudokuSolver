@@ -1,5 +1,5 @@
 import { AppDispatch } from "@/app/store";
-import { putDigit, moveCursor, solve } from "@/app/store/sudoku";
+import { putDigit, moveCursor } from "@/app/store/sudoku";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
@@ -47,12 +47,6 @@ const NumSelector =()=>{
     }
 
 
-    const clickL=()=>{
-
-        console.log('ksqdjfkls')
-        dispatch(solve(15))
-    }
-
     return (
         <>
         <div className="numSelector">
@@ -66,8 +60,7 @@ const NumSelector =()=>{
                 })
             }
           
-        </div>
-        <div onClick={()=>clickL()}>klqsjdklsq</div>
+        </div> 
         </>
     )
 
