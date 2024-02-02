@@ -35,26 +35,25 @@ a {
 
  
  .board{ 
-    display: grid;
-      grid-template-columns: repeat(9, 50px);
-      grid-template-rows: repeat(9, 50px);
-      gap: 0px;
-      border: var(--board-border);;
+  display: grid;
+  grid-template-columns: repeat(9, 50px);
+  grid-template-rows: repeat(9, 50px);
+  gap: 0px;
+  border: var(--board-border);;
      
  }
 
  .board .cell {
-    width: 50px;
-      height: 50px;
-    color: #000000;
-      background: #ffffff;
-      display: flex;
-      justify-content: center;
-      border: 1px solid #7b8173;
-      align-items: center; 
-     
-      font-size: 10px;
-      font-weight: 700; 
+  width: 50px;
+  height: 50px;
+  color: #000000;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #7b8173;
+  align-items: center; 
+  font-size: 25px;
+  font-weight: 700; 
     
  }
 .cell:nth-child(3n) {
