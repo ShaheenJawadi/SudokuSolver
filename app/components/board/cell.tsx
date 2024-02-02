@@ -2,15 +2,16 @@
 
 
 type Props ={
-    r:number ,
-    c:number
+    row:number ,
+    column:number, 
+    digit : number ,
 }
 
 const Cell =(props : Props )=>{
-    const {c ,r}= props ;
+    const { column, row, digit }= props ;
     return (
         <div className="cell">
-            [{r},{c}]
+            { digit!=0 && digit}
         </div>
     )
 }
