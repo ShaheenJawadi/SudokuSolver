@@ -1,14 +1,30 @@
 
 import {createSlice } from "@reduxjs/toolkit"; 
+import { SudokuBoardTpe } from "../types";
+
+
+  const emptyBoard: SudokuBoardTpe = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ];
+
 type InitialStateType = {
-  cursorPosition:{
-    x:number , y:number
+  cursorPosition: {
+    x: number;
+    y: number;
   };
- 
+  board: SudokuBoardTpe;
 };
 const initialState: InitialStateType = {
-  cursorPosition: {x:-1 , y:-1},
- 
+  cursorPosition: { x: -1, y: -1 },
+  board: emptyBoard,
 };
 
 export const appSudokuSlice = createSlice({
