@@ -35,7 +35,8 @@ export const appSudokuSlice = createSlice({
     putDigit: (state, action) => {
       const { x, y } = state.cursorPosition;
       const num =action.payload;
-      if (checkCursor(x, y) && state.board[x][y]!==num) {
+
+      if (checkCursor(x, y) && state.board[y][x]!==num) {
         if ( num==0 ||canPlaceNumber(state.board, y, x, num)) {
           state.board[y][x] = num;
         } else {
