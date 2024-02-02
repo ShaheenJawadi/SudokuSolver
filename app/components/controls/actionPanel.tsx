@@ -1,13 +1,13 @@
 
 import { solve, putDigit, reset } from "@/app/store/sudoku";
-import { AppDispatch } from "@/app/store";
-import { useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "@/app/store";
+import { useDispatch, useSelector } from "react-redux";
 
 const ActionPanel = ()=>{
 
 
     const dispatch = useDispatch<AppDispatch>()
-
+    const store = useSelector((state: RootState) => state.sudoku)
   
 
 
@@ -21,11 +21,14 @@ const ActionPanel = ()=>{
                 <div className="emoji" >🧹</div>
                 <div className="title" >Erase</div>
             </button>
+            {
+                store.solved &&
+           
             <button onClick={() => dispatch(reset())}>
                 <div className="emoji" >🔄</div>
                 <div className="title" >Reset</div>
             </button>
-       
+        }
 
            
 

@@ -20,12 +20,14 @@ import {  canPlaceNumber, solvePuzzle } from "../services/solver";
 type InitialStateType = {
   cursorPosition: CursorPositionType;
   board: SudokuBoardTpe;
-  duplication:boolean
+  duplication:boolean, 
+  solved : boolean
 };
 const initialState: InitialStateType = {
   cursorPosition: { x: -1, y: -1 },
   board: emptyBoard,
   duplication : false ,
+  solved:false,
 };
 
 export const appSudokuSlice = createSlice({
@@ -33,6 +35,9 @@ export const appSudokuSlice = createSlice({
   initialState,
   reducers: {
     putDigit: (state, action) => {
+      if(state.solved){
+        return
+      }
       const { x, y } = state.cursorPosition;
       const num =action.payload;
 
@@ -86,16 +91,17 @@ export const appSudokuSlice = createSlice({
 
       state.cursorPosition = newPos;
     },
-    solve: (state) => {
+    solve: (state) => { 
       const solver = solvePuzzle(state.board);
       if (solver) {
-        console.log("Solved");
+        
+        state.solved=true
       } else {
-        console.log("cannot be solved.");
+       alert("Unable to solve the Sudoku puzzle");
       }
     },
     reset: (state) => {
-      state.board = emptyBoard;
+      return initialState
     },
     duplicationState: (state) => {
       state.duplication = false;
