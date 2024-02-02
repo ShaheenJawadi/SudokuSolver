@@ -1,9 +1,9 @@
- import styles from "./page.module.css";
+ import Board from "./components/board";
 
 export default function Home() {
   return (
     <main className="main">
-      board
+      <Board/>
   
     </main>
   );
