@@ -1,6 +1,6 @@
 
 import {createSlice } from "@reduxjs/toolkit"; 
-import { SudokuBoardTpe } from "../types";
+import { SudokuBoardTpe, CursorPositionType } from "../types";
 
 
   const emptyBoard: SudokuBoardTpe = [
@@ -16,10 +16,7 @@ import { SudokuBoardTpe } from "../types";
   ];
 
 type InitialStateType = {
-  cursorPosition: {
-    x: number;
-    y: number;
-  };
+  cursorPosition: CursorPositionType;
   board: SudokuBoardTpe;
 };
 const initialState: InitialStateType = {
@@ -32,6 +29,11 @@ export const appSudokuSlice = createSlice({
   initialState,
   reducers: {
     putDigit: (state, action) => {
+      const {x,y}=state.cursorPosition;
+      if(checkCursor(x,y)){
+        state.board[y][x]=action.payload
+      }
+      
 
     },
     setCursor :(state , action )=>{
@@ -46,5 +48,9 @@ export const appSudokuSlice = createSlice({
   }
 });
 
+const checkCursor = (x:number , y:number) => {
+  if (x == -1 && y == -1) return false;
+  return true;
+};
 export const { putDigit, setCursor } = appSudokuSlice.actions;
 export default appSudokuSlice.reducer;
