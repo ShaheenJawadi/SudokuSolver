@@ -9,9 +9,9 @@ type Props ={
 const Cell =(props : Props )=>{
     const {c ,r}= props ;
     return (
-        < >
+        <div className="cell">
             [{r},{c}]
-        </ >
+        </div>
     )
 }
 
