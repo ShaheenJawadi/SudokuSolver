@@ -17,9 +17,13 @@ export const appSudokuSlice = createSlice({
   reducers: {
     putDigit: (state, action) => {
 
+    },
+    setCursor :(state , action )=>{
+      state.cursorPosition = {x:action.payload.x ,y:action.payload.y}
+      console.log(state.cursorPosition)
     }
   }
 });
 
-export const { putDigit } = appSudokuSlice.actions;
+export const { putDigit, setCursor } = appSudokuSlice.actions;
 export default appSudokuSlice.reducer;

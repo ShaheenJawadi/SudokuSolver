@@ -24,7 +24,7 @@ const Board =()=>{
                 
                 return(
                     [...Array(9)].map((_, cIndex) => {
-                        return <Cell key={cIndex} digit={test[rIndex][cIndex]} row={rIndex} column={cIndex} />
+                        return <Cell key={cIndex} digit={test[rIndex][cIndex]} row={rIndex+1} column={cIndex+1} />
                     })
                    
             )})} 
