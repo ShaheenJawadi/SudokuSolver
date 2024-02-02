@@ -1,5 +1,5 @@
 import { AppDispatch } from "@/app/store";
-import { putDigit, moveCursor } from "@/app/store/sudoku";
+import { putDigit, moveCursor, solve } from "@/app/store/sudoku";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
@@ -12,7 +12,7 @@ const NumSelector =()=>{
         const handleKeyDown = (event: any) => {
             const keyCode = event.keyCode ;
             if ((event.key >= '1' && event.key <= '9')) {
-                handelClick(event.key as number);
+                handelClick(parseInt(event.key));
             }
             else if (keyCode == 8) {
                 handelClick(0);
@@ -46,7 +46,15 @@ const NumSelector =()=>{
         dispatch(putDigit(num))
     }
 
+
+    const clickL=()=>{
+
+        console.log('ksqdjfkls')
+        dispatch(solve(15))
+    }
+
     return (
+        <>
         <div className="numSelector">
  
             {
@@ -59,6 +67,8 @@ const NumSelector =()=>{
             }
           
         </div>
+        <div onClick={()=>clickL()}>klqsjdklsq</div>
+        </>
     )
 
 }

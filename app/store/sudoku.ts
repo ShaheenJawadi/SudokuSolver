@@ -1,6 +1,8 @@
 
 import {createSlice } from "@reduxjs/toolkit"; 
 import { SudokuBoardTpe, CursorPositionType } from "../types";
+import {  solvePuzzle } from "../services/solver";
+ 
 
 
   const emptyBoard: SudokuBoardTpe = [
@@ -86,6 +88,17 @@ export const appSudokuSlice = createSlice({
       }
 
        state.cursorPosition = newPos;
+    },
+    solve :(state , action)=>{
+
+ const solver = solvePuzzle(state.board);
+
+
+        if (solver) {
+        console.log("Solved");
+        } else {
+        console.log("cannot be solved.");
+        }
     }
   }
 });
@@ -94,5 +107,5 @@ const checkCursor = (x:number , y:number) => {
   if (x == -1 && y == -1) return false;
   return true;
 };
-export const { putDigit, setCursor, moveCursor } = appSudokuSlice.actions;
+export const { putDigit, setCursor, moveCursor, solve } = appSudokuSlice.actions;
 export default appSudokuSlice.reducer;
