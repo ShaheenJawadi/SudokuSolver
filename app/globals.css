@@ -57,6 +57,11 @@ a {
   font-weight: 700; 
     
  }
+
+ .board .cell.cursor{
+    border: 3px solid #d29816 !important;
+    background: #f7f1d9;
+ }
 .cell:nth-child(3n) {
   border-right: var(--board-border);;
 }
