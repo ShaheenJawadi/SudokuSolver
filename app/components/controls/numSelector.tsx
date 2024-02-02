@@ -1,11 +1,28 @@
 import { AppDispatch } from "@/app/store";
 import {putDigit } from "@/app/store/sudoku";
+import { useEffect } from "react";
 import { useDispatch, } from "react-redux";
 
 
 const NumSelector =()=>{
 
     const dispatch = useDispatch<AppDispatch>()
+
+    useEffect(() => {
+        const handleKeyDown = (event: any) => {
+            const pressedKey: number = event.keyCode;
+            console.log(pressedKey)
+            if ((event.key >= '1' && event.key <= '9')) {
+                handelClick(event.key as number);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
+
+
     const handelClick = (num :number) => {
        
         dispatch(putDigit(num))
