@@ -31,6 +31,7 @@ a {
   height: 100vh;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
  
@@ -76,4 +77,36 @@ a {
 .cell:nth-child(n+28):nth-child(-n+36),
 .cell:nth-child(n+55):nth-child(-n+63) {
   border-top: var(--board-border);
+}
+
+
+
+.numSelector{
+  display: flex;
+  margin: 10px 0;
+}
+
+.numSelector .singleNum{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  border: 2px solid #000;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+.numSelector .singleNum:hover{
+  background: #b7a95191;
+}
+
+.numSelector .singleNum:nth-child(1){
+  border-radius: 50px 0  0 50px;
+}
+
+.numSelector .singleNum:last-child {
+  border-radius: 0px 50px 50px 0px;
 }
