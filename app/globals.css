@@ -159,3 +159,15 @@ a {
   padding: 10px;
   color: #fa0202;
 }
+
+.solvedMessage{
+  padding: 8px;
+  border-radius: 5px;
+  background:#abfd8fbd;
+  border : 2px solid #009029;
+  color: #006a1e;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+
+}

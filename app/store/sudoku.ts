@@ -21,13 +21,15 @@ type InitialStateType = {
   cursorPosition: CursorPositionType;
   board: SudokuBoardTpe;
   duplication:boolean, 
-  solved : boolean
+  solved : boolean, 
+  timeTaken : string|null ,
 };
 const initialState: InitialStateType = {
   cursorPosition: { x: -1, y: -1 },
   board: emptyBoard,
-  duplication : false ,
-  solved:false,
+  duplication: false,
+  solved: false,
+  timeTaken:null,
 };
 
 export const appSudokuSlice = createSlice({
@@ -92,9 +94,13 @@ export const appSudokuSlice = createSlice({
       state.cursorPosition = newPos;
     },
     solve: (state) => { 
+      const startTime = performance.now();
       const solver = solvePuzzle(state.board);
+      const endTime = performance.now();
+   
+      
       if (solver) {
-        
+        state.timeTaken =(endTime - startTime).toFixed(3);
         state.solved=true
       } else {
        alert("Unable to solve the Sudoku puzzle");

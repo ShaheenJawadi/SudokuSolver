@@ -19,11 +19,24 @@ const MessageDisplay =()=>{
     },[ store.duplication])
 
     if (store.duplication)
-    return (
-        <div className="duplicationMessage" >
-            This number already exists in the same row, column, or block.
-        </div>
-    )
+    {
+        return (
+            <div className="duplicationMessage" >
+                This number already exists in the same row, column, or block.
+            </div>
+        )
+    }
+    else if  (store.solved)
+     {
+        return (
+            <div className="solvedMessage" >
+                <div>🎉 Sudoku successfully solved! </div>
+                <div>⏱️Completed in {store.timeTaken} milliseconds.</div>
+                
+            </div>
+        )
+    }
+    else return null
 }
 
 export default MessageDisplay ;
