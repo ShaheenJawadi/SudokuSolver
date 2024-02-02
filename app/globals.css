@@ -68,11 +68,12 @@ a {
  
 
 .cell:nth-child(n+19):nth-child(-n+27),
-.cell:nth-child(n+46):nth-child(-n+54)  {
-  border-bottom:var(--board-border);;
+.cell:nth-child(n+46):nth-child(-n+54),
+.cell:nth-child(n+73):nth-child(-n+81) {
+  border-bottom:var(--board-border);
 }
  
-
+.cell:nth-child(n+1):nth-child(-n+9),
 .cell:nth-child(n+28):nth-child(-n+36),
 .cell:nth-child(n+55):nth-child(-n+63) {
   border-top: var(--board-border);
