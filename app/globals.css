@@ -153,3 +153,9 @@ a {
   font-size: 16px;
   text-wrap: nowrap;
 }
+
+
+.duplicationMessage{
+  padding: 10px;
+  color: #fa0202;
+}
